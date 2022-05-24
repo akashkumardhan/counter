@@ -1,13 +1,13 @@
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
+import React from "react";
+import { Provider } from "react-redux";
+import { render } from "react-dom";
+import Counter from "./Counter";
+import store from "./store";
 
-import App from "./App";
-
-const rootElement = document.getElementById("root");
-const root = createRoot(rootElement);
-
-root.render(
-  <StrictMode>
-    <App />
-  </StrictMode>
+const App = () => (
+  <Provider store={store}>
+    <Counter />
+  </Provider>
 );
+
+render(<App />, document.getElementById("root"));
